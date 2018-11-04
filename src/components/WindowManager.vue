@@ -1,6 +1,9 @@
 <template>
   <div id="window-manager">
-    <v-window v-for="page in activeWindows" :page="page" :key="page" />
+    <v-window
+      v-for="page in pages"
+      :page="page"
+      :key="page" />
   </div>
 </template>
 
@@ -14,7 +17,12 @@ export default {
   components: {
     VWindow
   },
-  computed: mapState(["activeWindows"])
+  computed: {
+    ...mapState(["windows"]),
+    pages() {
+      return Object.keys(this.windows).sort();
+    }
+  }
 };
 </script>
 

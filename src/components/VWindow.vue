@@ -1,10 +1,11 @@
 <template>
   <article
+    v-show="show"
     class="window"
     @mousedown="dragStart"
     @touchstart="dragStart"
-    :style="{ left: left + 'px', top: top + 'px' }">
-    <button @click="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
+    :style="{ left: left + 'px', top: top + 'px', zIndex }">
+    <button @click.stop.prevent="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
     <component :is="'p-' + page" />
   </article>
 </template>
@@ -28,13 +29,24 @@ export default {
       required: true
     }
   },
-  computed: mapState(["positions"]),
+  computed: {
+    ...mapState(["windows"]),
+    window() {
+      return this.windows[this.page];
+    },
+    show() {
+      return this.window.active;
+    },
+    zIndex() {
+      return 100 - this.window.sort;
+    }
+  },
   created() {
-    this.left = this.positions[this.page].left;
-    this.top = this.positions[this.page].top;
+    this.left = this.windows[this.page].left;
+    this.top = this.windows[this.page].top;
   },
   methods: {
-    ...mapActions(["closeWindow", "setLastPosition"]),
+    ...mapActions(["closeWindow", "setLastPosition", "bringToFront"]),
     dragStart(event) {
       event.preventDefault();
       this.offsetX = event.clientX;
@@ -44,6 +56,8 @@ export default {
       document.addEventListener("touchend", this.dragEnd);
       document.addEventListener("mousemove", this.drag);
       document.addEventListener("touchmove", this.drag);
+
+      this.bringToFront(this.page);
     },
     drag(event) {
       event.preventDefault();
@@ -72,8 +86,8 @@ export default {
 
 <style lang="scss">
 .window {
-  background-color: black;
-  position: relative;
+  background-color: #333;
+  position: absolute;
   color: white;
   width: max-content;
   padding: 10px 20px;

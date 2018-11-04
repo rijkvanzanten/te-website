@@ -7,31 +7,42 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
-    activeWindows: ["about", "contact", "schedule"],
-    positions: {
+    windows: {
       about: {
         left: 50,
-        top: 50
+        top: 50,
+        sort: 1,
+        active: true
       },
       contact: {
         left: 100,
-        top: 90
+        top: 90,
+        sort: 2,
+        active: true
       },
       schedule: {
         left: 500,
-        top: 200
+        top: 200,
+        sort: 3,
+        active: true
       }
     }
   },
   mutations: {
     closeWindow(state, name) {
-      state.activeWindows = state.activeWindows.filter(
-        activeName => activeName !== name
-      );
+      state.windows[name].active = false;
     },
     setLastPosition(state, { page, left, top }) {
-      state.positions[page].left = left;
-      state.positions[page].top = top;
+      state.windows[page].left = left;
+      state.windows[page].top = top;
+    },
+    bringToFront(state, name) {
+      // Increment each sort value by 1. Set the provided name to be 1
+      Object.keys(state.windows).forEach(windowName => {
+        state.windows[windowName].sort = state.windows[windowName].sort + 1;
+      });
+
+      state.windows[name].sort = 1;
     }
   },
   actions: {
@@ -40,6 +51,9 @@ export default new Vuex.Store({
     },
     setLastPosition({ commit }, info) {
       commit("setLastPosition", info);
+    },
+    bringToFront({ commit }, name) {
+      commit("bringToFront", name);
     }
   }
 });
