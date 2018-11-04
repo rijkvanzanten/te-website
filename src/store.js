@@ -39,7 +39,13 @@ export default new Vuex.Store({
     bringToFront(state, name) {
       const sortedNames = [
         name,
-        ...Object.keys(state.windows).filter(windowName => windowName !== name)
+        ...Object.keys(state.windows)
+          .filter(windowName => windowName !== name)
+          .sort((a, b) => {
+            const sortA = state.windows[a].sort;
+            const sortB = state.windows[b].sort;
+            return sortA > sortB ? 1 : -1;
+          })
       ];
       sortedNames.forEach((sortedName, index) => {
         state.windows[sortedName].sort = index;
