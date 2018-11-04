@@ -96,7 +96,7 @@ export default {
   padding: 10px 20px;
   touch-action: none;
   user-select: none;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);  
 
   button {
     position: absolute;
