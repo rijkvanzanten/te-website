@@ -1,10 +1,9 @@
 <template>
   <article
     class="window"
-    ref="window"
     @mousedown="dragStart"
     @touchstart="dragStart"
-    :style="{ left, top }">
+    :style="{ left: left + 'px', top: top + 'px' }">
     <button @click="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
     <component :is="'p-' + page" />
   </article>
@@ -17,8 +16,8 @@ export default {
   name: "v-window",
   data() {
     return {
-      top: "0px",
-      left: "0px",
+      top: 0,
+      left: 0,
       offsetX: 0,
       offsetY: 0
     };
@@ -49,10 +48,8 @@ export default {
     drag(event) {
       event.preventDefault();
 
-      const windowEl = this.$refs.window;
-
-      this.left = windowEl.offsetLeft - (this.offsetX - event.clientX) + "px";
-      this.top = windowEl.offsetTop - (this.offsetY - event.clientY) + "px";
+      this.left = this.left - (this.offsetX - event.clientX);
+      this.top = this.top - (this.offsetY - event.clientY);
 
       this.offsetX = event.clientX;
       this.offsetY = event.clientY;
@@ -82,6 +79,7 @@ export default {
   padding: 10px 20px;
   touch-action: none;
   user-select: none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   button {
     position: absolute;

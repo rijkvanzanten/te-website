@@ -5,13 +5,21 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  plugins: [createPersistedState()],
+  // plugins: [createPersistedState()],
   state: {
-    activeWindows: ["about"],
+    activeWindows: ["about", "contact", "schedule"],
     positions: {
       about: {
-        left: "0px",
-        top: "0px"
+        left: 50,
+        top: 50
+      },
+      contact: {
+        left: 100,
+        top: 90
+      },
+      schedule: {
+        left: 500,
+        top: 200
       }
     }
   },
