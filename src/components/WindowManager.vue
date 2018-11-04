@@ -1,19 +1,20 @@
 <template>
   <div id="window-manager">
-    <v-window>
-      <h1>Hello World</h1>
-    </v-window>
+    <v-window v-for="page in activeWindows" :page="page" :key="page" />
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import VWindow from "./VWindow.vue";
 
 export default {
   name: "window-manager",
   components: {
     VWindow
-  }
+  },
+  computed: mapState(["activeWindows"])
 };
 </script>
 

@@ -1,17 +1,28 @@
 <template>
-  <div v-drag class="window" @click="click">
-    <button><img src="../assets/close.svg" alt="" /></button>
-    <slot />
-  </div>
+  <article v-drag class="window">
+    <button @click="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
+    <component :is="'p-' + page" />
+  </article>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import drag from "@branu-jp/v-drag";
 
 export default {
   name: "v-window",
+  props: {
+    page: {
+      type: String,
+      required: true
+    }
+  },
   directives: {
     drag
+  },
+  methods: {
+    ...mapActions(["closeWindow"])
   }
 };
 </script>

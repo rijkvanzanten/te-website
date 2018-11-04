@@ -4,6 +4,8 @@ import store from "./store";
 
 import "./assets/global.scss";
 
+import "./pages/register";
+
 Vue.config.productionTip = false;
 
 new Vue({
