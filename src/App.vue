@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <window-manager />
+    <p>Psst, the windows are stored in localstorage. If you hit close, it'll be gone forever.</p>
   </div>
 </template>
 
