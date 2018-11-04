@@ -6,9 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "fix": "prettier src/**/*.* --write"
+    "fix": "prettier \"src/**/*.{js,vue}\" --write"
   },
   "dependencies": {
+    "lodash.throttle": "^4.1.1",
     "vue": "^2.5.17",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4"

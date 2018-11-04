@@ -4,7 +4,7 @@
     class="window"
     @mousedown="dragStart"
     @touchstart="dragStart"
-    :style="{ left: left + 'px', top: top + 'px', zIndex }">
+    :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }">
     <button @click.stop.prevent="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
     <component :is="'p-' + page" />
   </article>
@@ -12,6 +12,7 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import throttle from "lodash.throttle";
 
 export default {
   name: "v-window",
@@ -44,6 +45,8 @@ export default {
   created() {
     this.left = this.windows[this.page].left;
     this.top = this.windows[this.page].top;
+
+    this.drag = throttle(this.drag, 12); // Just under 60fps. Jankfree dragging
   },
   methods: {
     ...mapActions(["closeWindow", "setLastPosition", "bringToFront"]),

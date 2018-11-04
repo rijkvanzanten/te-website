@@ -37,12 +37,13 @@ export default new Vuex.Store({
       state.windows[page].top = top;
     },
     bringToFront(state, name) {
-      // Increment each sort value by 1. Set the provided name to be 1
-      Object.keys(state.windows).forEach(windowName => {
-        state.windows[windowName].sort = state.windows[windowName].sort + 1;
+      const sortedNames = [
+        name,
+        ...Object.keys(state.windows).filter(windowName => windowName !== name)
+      ];
+      sortedNames.forEach((sortedName, index) => {
+        state.windows[sortedName].sort = index;
       });
-
-      state.windows[name].sort = 1;
     }
   },
   actions: {
