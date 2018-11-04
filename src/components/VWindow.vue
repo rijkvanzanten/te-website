@@ -1,28 +1,74 @@
 <template>
-  <article v-drag class="window">
+  <article
+    class="window"
+    ref="window"
+    @mousedown="dragStart"
+    @touchstart="dragStart"
+    :style="{ left, top }">
     <button @click="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
     <component :is="'p-' + page" />
   </article>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
-import drag from "@branu-jp/v-drag";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "v-window",
+  data() {
+    return {
+      top: "0px",
+      left: "0px",
+      offsetX: 0,
+      offsetY: 0
+    };
+  },
   props: {
     page: {
       type: String,
       required: true
     }
   },
-  directives: {
-    drag
+  computed: mapState(["positions"]),
+  created() {
+    this.left = this.positions[this.page].left;
+    this.top = this.positions[this.page].top;
   },
   methods: {
-    ...mapActions(["closeWindow"])
+    ...mapActions(["closeWindow", "setLastPosition"]),
+    dragStart(event) {
+      event.preventDefault();
+      this.offsetX = event.clientX;
+      this.offsetY = event.clientY;
+
+      document.addEventListener("mouseup", this.dragEnd);
+      document.addEventListener("touchend", this.dragEnd);
+      document.addEventListener("mousemove", this.drag);
+      document.addEventListener("touchmove", this.drag);
+    },
+    drag(event) {
+      event.preventDefault();
+
+      const windowEl = this.$refs.window;
+
+      this.left = windowEl.offsetLeft - (this.offsetX - event.clientX) + "px";
+      this.top = windowEl.offsetTop - (this.offsetY - event.clientY) + "px";
+
+      this.offsetX = event.clientX;
+      this.offsetY = event.clientY;
+    },
+    dragEnd() {
+      document.removeEventListener("mouseup", this.dragEnd);
+      document.removeEventListener("touchend", this.dragEnd);
+      document.removeEventListener("mousemove", this.drag);
+      document.removeEventListener("touchmove", this.drag);
+
+      this.setLastPosition({
+        page: this.page,
+        left: this.left,
+        top: this.top
+      });
+    }
   }
 };
 </script>

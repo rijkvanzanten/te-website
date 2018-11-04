@@ -1,15 +1,17 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  plugins: [createPersistedState()],
   state: {
     activeWindows: ["about"],
     positions: {
       about: {
-        xPos: 0,
-        yPos: 0
+        left: "0px",
+        top: "0px"
       }
     }
   },
@@ -18,11 +20,18 @@ export default new Vuex.Store({
       state.activeWindows = state.activeWindows.filter(
         activeName => activeName !== name
       );
+    },
+    setLastPosition(state, { page, left, top }) {
+      state.positions[page].left = left;
+      state.positions[page].top = top;
     }
   },
   actions: {
     closeWindow({ commit }, name) {
       commit("closeWindow", name);
+    },
+    setLastPosition({ commit }, info) {
+      commit("setLastPosition", info);
     }
   }
 });
