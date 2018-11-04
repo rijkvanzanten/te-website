@@ -5,7 +5,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    activeWindows: ["about"]
+    activeWindows: ["about"],
+    positions: {
+      about: {
+        xPos: 0,
+        yPos: 0
+      }
+    }
   },
   mutations: {
     closeWindow(state, name) {
