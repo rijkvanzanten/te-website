@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h2>Ticket Info</h2>
-  </div>
+  <div><h2>Ticket Info</h2></div>
 </template>
 
 <script>

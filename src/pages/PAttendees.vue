@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h2>Attendees</h2>
-  </div>
+  <div><h2>Attendees</h2></div>
 </template>
 
 <script>

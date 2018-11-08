@@ -1,6 +1,6 @@
 <template>
   <div id="menubar">
-    <button @click="toggleNavigationMenu()">Menu</button>
+    <button @click="toggleNavigationMenu();">{{ $t("menu") }}</button>
     <count-down />
   </div>
 </template>

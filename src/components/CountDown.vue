@@ -1,6 +1,8 @@
 <template>
   <div id="countdown">
-    <time :datetime="conferenceDate">{{days}}:{{hours}}:{{minutes}}:{{seconds}}</time>
+    <time :datetime="conferenceDate"
+      >{{ days }}:{{ hours }}:{{ minutes }}:{{ seconds }}</time
+    >
   </div>
 </template>
 

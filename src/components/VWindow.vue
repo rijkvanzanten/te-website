@@ -4,8 +4,11 @@
     class="window"
     @mousedown="dragStart"
     @touchstart="dragStart"
-    :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }">
-    <button @click.stop.prevent="closeWindow(page)"><img src="../assets/close.svg" alt="" /></button>
+    :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }"
+  >
+    <button @click.stop.prevent="closeWindow(page);">
+      <img src="../assets/close.svg" alt="" />
+    </button>
     <component :is="'p-' + page" />
   </article>
 </template>

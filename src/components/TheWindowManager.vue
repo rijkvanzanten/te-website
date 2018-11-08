@@ -1,9 +1,6 @@
 <template>
   <div id="window-manager">
-    <v-window
-      v-for="page in pages"
-      :page="page"
-      :key="page" />
+    <v-window v-for="page in pages" :page="page" :key="page" />
   </div>
 </template>
 
