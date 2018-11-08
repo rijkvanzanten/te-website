@@ -1,16 +1,21 @@
 <template>
   <div id="menubar">
+    <button @click="toggleNavigationMenu()">Menu</button>
     <count-down />
   </div>
 </template>
 
 <script>
-import CountDown from "./MenuBarCountDown.vue";
+import { mapActions } from "vuex";
+import CountDown from "./CountDown.vue";
 
 export default {
   name: "menu-bar",
   components: {
     CountDown
+  },
+  methods: {
+    ...mapActions(["toggleNavigationMenu"])
   }
 };
 </script>
@@ -20,7 +25,7 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  height: 60px;
+  height: var(--menu-bar-height);
   background-color: black;
   bottom: 0;
 }

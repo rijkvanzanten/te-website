@@ -26,7 +26,8 @@ export default new Vuex.Store({
         sort: 3,
         active: true
       }
-    }
+    },
+    navigationMenuActive: false
   },
   mutations: {
     closeWindow(state, name) {
@@ -50,6 +51,13 @@ export default new Vuex.Store({
       sortedNames.forEach((sortedName, index) => {
         state.windows[sortedName].sort = index;
       });
+    },
+    toggleNavigationMenu(state, active = null) {
+      if (active === null) {
+        state.navigationMenuActive = !state.navigationMenuActive;
+      } else {
+        state.navigationMenuActive = active;
+      }
     }
   },
   actions: {
@@ -61,6 +69,9 @@ export default new Vuex.Store({
     },
     bringToFront({ commit }, name) {
       commit("bringToFront", name);
+    },
+    toggleNavigationMenu({ commit }, active) {
+      commit("toggleNavigationMenu", active);
     }
   }
 });
