@@ -14,22 +14,49 @@ export default new Vuex.Store({
         sort: 1,
         active: true
       },
-      contact: {
+      speakers: {
+        left: 100,
+        top: 90,
+        sort: 2,
+        active: false
+      },
+      schedule: {
+        left: 100,
+        top: 90,
+        sort: 2,
+        active: false
+      },
+      venue: {
         left: 100,
         top: 90,
         sort: 2,
         active: true
       },
-      schedule: {
+      attendees: {
         left: 500,
         top: 200,
         sort: 3,
         active: true
+      },
+      contact: {
+        left: 0,
+        top: 0,
+        sort: 5,
+        active: false
+      },
+      tickets: {
+        left: 0,
+        top: 0,
+        sort: 12,
+        active: false
       }
     },
     navigationMenuActive: false
   },
   mutations: {
+    openWindow(state, name) {
+      state.windows[name].active = true;
+    },
     closeWindow(state, name) {
       state.windows[name].active = false;
     },
@@ -61,6 +88,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    openWindow({ commit }, name) {
+      commit("openWindow", name);
+      commit("bringToFront", name);
+    },
     closeWindow({ commit }, name) {
       commit("closeWindow", name);
     },

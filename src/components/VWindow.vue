@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .window {
   background-color: #333;
   position: absolute;
