@@ -2,6 +2,7 @@
   <article
     v-show="show"
     class="window"
+    :class="[{ active: frontWindow }, color]"
     @mousedown="dragStart"
     @touchstart="dragStart"
     :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }"
@@ -31,6 +32,10 @@ export default {
     page: {
       type: String,
       required: true
+    },
+    color: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -43,6 +48,9 @@ export default {
     },
     zIndex() {
       return 100 - this.window.sort;
+    },
+    frontWindow() {
+      return this.window.sort === 0;
     }
   },
   created() {
@@ -114,6 +122,54 @@ export default {
     img {
       width: 10px;
       height: 10px;
+    }
+  }
+
+  &.purple {
+    background-color: var(--purple-700);
+
+    /deep/ h2 {
+      color: var(--purple-500);
+    }
+  }
+
+  &.red {
+    background-color: var(--red-700);
+
+    /deep/ h2 {
+      color: var(--red-500);
+    }
+  }
+
+  &.orange {
+    background-color: var(--orange-700);
+
+    /deep/ h2 {
+      color: var(--orange-500);
+    }
+  }
+
+  &.yellow {
+    background-color: var(--yellow-700);
+
+    /deep/ h2 {
+      color: var(--yellow-500);
+    }
+  }
+
+  &.green {
+    background-color: var(--green-700);
+
+    /deep/ h2 {
+      color: var(--green-500);
+    }
+  }
+
+  &.blue {
+    background-color: var(--blue-700);
+
+    /deep/ h2 {
+      color: var(--blue-500);
     }
   }
 }

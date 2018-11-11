@@ -1,5 +1,47 @@
 :root {
   --menu-bar-height: 60px;
+
+  --white: #FFFFFF;
+  --light-gray: #9F9F9F;
+  --gray: #535353;
+  --dark-gray: #242424;
+  --black: #191919;
+
+  --purple-500: #6C0CCF;
+  --purple-600: #3F0779;
+  --purple-700: #2E0658;
+  --purple-800: #1A0332;
+  --purple-900: #0D0219;
+
+  --red-500: #EB0C4B;
+  --red-600: #981037;
+  --red-700: #6F2232;
+  --red-800: #47121D;
+  --red-900: #25090F;
+
+  --orange-500: #FF5013;
+  --orange-600: #C83D0D;
+  --orange-700: #942E0A;
+  --orange-800: #521906;
+  --orange-900: #210A02;
+ 
+  --yellow-500: #FFE40D;
+  --yellow-600: #A6940A;
+  --yellow-700: #6C6004;
+  --yellow-800: #39330A;
+  --yellow-900: #1F1C05;
+
+  --green-500: #11C17B;
+  --green-600: #0C8F5B;
+  --green-700: #0A6944;
+  --green-800: #07482E;
+  --green-900: #032115;
+
+  --blue-500: #15B4FC;
+  --blue-600: #1287BC;
+  --blue-700: #0A5D83;
+  --blue-800: #003F5B;
+  --blue-900: #01202F;
 }
 
 * {
@@ -18,4 +60,6 @@ body {
   overflow: hidden;
   margin: 0;
   color: white;
+  background-color: black;
+  font-family: "Source Code Pro";
 }

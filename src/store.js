@@ -18,37 +18,43 @@ export default new Vuex.Store({
         left: 100,
         top: 90,
         sort: 2,
-        active: false
+        active: false,
+        color: "orange"
       },
       schedule: {
         left: 100,
         top: 90,
         sort: 2,
-        active: false
+        active: false,
+        color: "green"
       },
       venue: {
         left: 100,
         top: 90,
         sort: 2,
-        active: true
+        active: true,
+        color: "blue"
       },
       attendees: {
         left: 500,
         top: 200,
         sort: 3,
-        active: true
+        active: true,
+        color: "purple"
       },
       contact: {
         left: 0,
         top: 0,
         sort: 5,
-        active: false
+        active: false,
+        color: "yellow"
       },
       tickets: {
         left: 0,
         top: 0,
         sort: 12,
-        active: false
+        active: false,
+        color: "red"
       }
     },
     navigationMenuActive: false
