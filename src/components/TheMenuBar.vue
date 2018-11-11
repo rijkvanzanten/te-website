@@ -44,6 +44,9 @@ export default {
     font-weight: 800;
     height: 100%;
     padding: 0 30px;
+    float: left;
+    border-right: 2px solid var(--dark-gray);
+    cursor: pointer;
 
     &:hover {
       background-color: var(--dark-gray);

@@ -61,5 +61,13 @@ export default {
 
 <style lang="scss" scoped>
 #countdown {
+  height: 100%;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  float: right;
+  padding: 0 30px;
+  border-left: 2px solid var(--dark-gray);
 }
 </style>

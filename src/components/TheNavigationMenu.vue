@@ -6,7 +6,9 @@
   >
     <ul>
       <li>
-        <a href="#" @click.prevent="openWindowAndCloseMenu('about');">About</a>
+        <a 
+          href="#" 
+          @click.prevent="openWindowAndCloseMenu('about');">About</a>
       </li>
       <li>
         <a href="#" @click.prevent="openWindowAndCloseMenu('speakers');"
