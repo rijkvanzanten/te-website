@@ -5,6 +5,7 @@
       :page="page"
       :key="page"
       :color="windows[page].color || null"
+      :close="windows[page].close"
     />
   </div>
 </template>

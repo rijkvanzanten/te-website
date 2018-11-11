@@ -7,7 +7,7 @@
     @touchstart="dragStart"
     :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }"
   >
-    <button @click.stop.prevent="closeWindow(page);">
+    <button v-if="close" @click.stop.prevent="closeWindow(page);">
       <svg viewBox="0 0 10 10" class="close-icon">
         <path
           d="m7.1 1.4 1.4 1.4-5.6 5.6-1.4-1.4zm-4.2 0l5.6 5.6-1.4 1.4-5.6-5.6z"
@@ -40,6 +40,10 @@ export default {
     color: {
       type: String,
       default: null
+    },
+    close: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {

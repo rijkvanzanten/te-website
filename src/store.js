@@ -12,7 +12,8 @@ export default new Vuex.Store({
         left: 50,
         top: 50,
         sort: 1,
-        active: true
+        active: true,
+        close: false
       },
       speakers: {
         left: 100,
@@ -75,15 +76,19 @@ export default new Vuex.Store({
         name,
         ...Object.keys(state.windows)
           .filter(windowName => windowName !== name)
-          .filter(windowName => state.windows[windowName].active)
           .sort((a, b) => {
             const sortA = state.windows[a].sort;
             const sortB = state.windows[b].sort;
             return sortA > sortB ? 1 : -1;
           })
       ];
+
       sortedNames.forEach((sortedName, index) => {
-        state.windows[sortedName].sort = index;
+        if (state.windows[sortedName].active) {
+          state.windows[sortedName].sort = index;
+        } else {
+          state.windows[sortedName].sort = -1;
+        }
       });
     },
     toggleNavigationMenu(state, active = null) {
@@ -116,6 +121,15 @@ export default new Vuex.Store({
     },
     toggleNavigationMenu({ commit }, active) {
       commit("toggleNavigationMenu", active);
+    }
+  },
+  getters: {
+    frontWindow(state) {
+      return state.windows[
+        Object.keys(state.windows).filter(
+          name => state.windows[name].sort === 0
+        )[0]
+      ];
     }
   }
 });

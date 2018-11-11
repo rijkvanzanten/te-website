@@ -6,11 +6,6 @@
   >
     <ul>
       <li>
-        <a 
-          href="#" 
-          @click.prevent="openWindowAndCloseMenu('about');">About</a>
-      </li>
-      <li>
         <a href="#" @click.prevent="openWindowAndCloseMenu('speakers');"
           >Speakers</a
         >
@@ -35,7 +30,7 @@
       </li>
       <li>
         <a href="#" @click.prevent="openWindowAndCloseMenu('tickets');"
-          >Ticket Info</a
+          >Tickets</a
         >
       </li>
     </ul>
