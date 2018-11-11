@@ -37,10 +37,10 @@ export default {
           }
         };
 
-        window.addEventListener("click", el.clickOutsideEvent);
+        window.addEventListener("mousedown", el.clickOutsideEvent);
       },
       unbind(el) {
-        window.removeEventListener("click", el.clickOutsideEvent);
+        window.removeEventListener("mousedown", el.clickOutsideEvent);
       }
     }
   }
@@ -55,6 +55,7 @@ export default {
   height: var(--menu-bar-height);
   background-color: var(--gray);
   bottom: 0;
+  z-index: 500;
 
   button {
     appearance: none;

@@ -29,9 +29,11 @@ export default {
 <style lang="scss" scoped>
 #navigation-menu {
   position: absolute;
-  background-color: black;
+  background-color: var(--dark-gray);
   left: 0;
   bottom: var(--menu-bar-height);
   width: 400px;
+  z-index: 500;
+  box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.5);
 }
 </style>
