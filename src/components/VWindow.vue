@@ -8,7 +8,9 @@
     :style="{ transform: `translate3d(${left}px, ${top}px, 0px)`, zIndex }"
   >
     <button @click.stop.prevent="closeWindow(page);">
-      <img src="../assets/close.svg" alt="" />
+      <svg viewBox="0 0 10 10" class="close-icon">
+        <path d="m7.1 1.4 1.4 1.4-5.6 5.6-1.4-1.4zm-4.2 0l5.6 5.6-1.4 1.4-5.6-5.6z"/>
+      </svg>
     </button>
     <component :is="'p-' + page" />
   </article>
@@ -118,10 +120,26 @@ export default {
     padding: 0;
     font-size: 0;
 
-    img {
-      width: 10px;
-      height: 10px;
+    transition: transform 180ms var(--transition);
+
+    svg {
+      width: 20px;
+      height: 20px;
     }
+
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  .close-icon {
+    fill: var(--gray);
+    transition: fill 200ms var(--transition-out);
   }
 
   background-color: var(--dark-gray);
@@ -139,6 +157,10 @@ export default {
     /deep/ h2 {
       color: var(--purple-700);
     }
+
+    .close-icon {
+      fill: var(--purple-700);
+    }
   }
 
   &.red {
@@ -146,6 +168,10 @@ export default {
 
     /deep/ h2 {
       color: var(--red-700);
+    }
+
+    .close-icon {
+      fill: var(--red-700);
     }
   }
 
@@ -155,6 +181,10 @@ export default {
     /deep/ h2 {
       color: var(--orange-700);
     }
+
+    .close-icon {
+      fill: var(--orange-700);
+    }
   }
 
   &.yellow {
@@ -162,6 +192,10 @@ export default {
 
     /deep/ h2 {
       color: var(--yellow-700);
+    }
+
+    .close-icon {
+      fill: var(--yellow-700);
     }
   }
 
@@ -171,6 +205,10 @@ export default {
     /deep/ h2 {
       color: var(--green-700);
     }
+
+    .close-icon {
+      fill: var(--green-700);
+    }
   }
 
   &.blue {
@@ -179,16 +217,25 @@ export default {
     /deep/ h2 {
       color: var(--blue-700);
     }
+
+    .close-icon {
+      fill: var(--blue-700);
+    }
   }
 
   &.active {
-     background-color: var(--gray);
+    background-color: var(--gray);
 
     transition: background-color 200ms var(--transition-in);
 
     /deep/ h2 {
       transition: color 200ms var(--transition-in);
       color: var(--white);
+    }
+
+    .close-icon {
+      fill: var(--white);
+      transition: fill 200ms var(--transition-in);
     }
 
     &.purple {
