@@ -1,16 +1,40 @@
 <template>
-  <nav v-show="navigationMenuActive" id="navigation-menu">
+  <nav
+    v-show="navigationMenuActive"
+    id="navigation-menu"
+    v-click-outside="closeIfActive"
+  >
     <ul>
-      <li><a href="#" @click.prevent="openWindow('about');">About</a></li>
-      <li><a href="#" @click.prevent="openWindow('speakers');">Speakers</a></li>
-      <li><a href="#" @click.prevent="openWindow('schedule');">Schedule</a></li>
-      <li><a href="#" @click.prevent="openWindow('venue');">Venue</a></li>
       <li>
-        <a href="#" @click.prevent="openWindow('attendees');">Attendees</a>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('about');">About</a>
       </li>
-      <li><a href="#" @click.prevent="openWindow('contact');">Contact</a></li>
       <li>
-        <a href="#" @click.prevent="openWindow('tickets');">Ticket Info</a>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('speakers');"
+          >Speakers</a
+        >
+      </li>
+      <li>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('schedule');"
+          >Schedule</a
+        >
+      </li>
+      <li>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('venue');">Venue</a>
+      </li>
+      <li>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('attendees');"
+          >Attendees</a
+        >
+      </li>
+      <li>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('contact');"
+          >Contact</a
+        >
+      </li>
+      <li>
+        <a href="#" @click.prevent="openWindowAndCloseMenu('tickets');"
+          >Ticket Info</a
+        >
       </li>
     </ul>
   </nav>
@@ -22,7 +46,40 @@ import { mapState, mapActions } from "vuex";
 export default {
   name: "navigation-menu",
   computed: mapState(["navigationMenuActive"]),
-  methods: mapActions(["openWindow"])
+  methods: {
+    ...mapActions(["openWindow", "toggleNavigationMenu"]),
+    closeIfActive() {
+      if (this.navigationMenuActive) {
+        this.toggleNavigationMenu(false);
+      }
+    },
+    openWindowAndCloseMenu(name) {
+      this.openWindow(name);
+      this.toggleNavigationMenu(false);
+    }
+  },
+  directives: {
+    "click-outside": {
+      bind(el, binding, vnode) {
+        el.clickOutsideEvent = function(event) {
+          if (
+            !(
+              el == event.target ||
+              el.contains(event.target) ||
+              event.target.getAttribute("id") === "toggle-menu"
+            )
+          ) {
+            vnode.context[binding.expression](event);
+          }
+        };
+
+        window.addEventListener("mousedown", el.clickOutsideEvent);
+      },
+      unbind(el) {
+        window.removeEventListener("mousedown", el.clickOutsideEvent);
+      }
+    }
+  }
 };
 </script>
 

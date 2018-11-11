@@ -1,6 +1,7 @@
 <template>
-  <div id="menubar" v-click-outside="closeIfActive">
+  <div id="menubar">
     <button
+      id="toggle-menu"
       :class="{ active: navigationMenuActive }"
       @click="toggleNavigationMenu();"
     >
@@ -19,31 +20,8 @@ export default {
   components: {
     CountDown
   },
-  methods: {
-    ...mapActions(["toggleNavigationMenu"]),
-    closeIfActive() {
-      if (this.navigationMenuActive) {
-        this.toggleNavigationMenu(false);
-      }
-    }
-  },
-  computed: mapState(["navigationMenuActive"]),
-  directives: {
-    "click-outside": {
-      bind(el, binding, vnode) {
-        el.clickOutsideEvent = function(event) {
-          if (!(el == event.target || el.contains(event.target))) {
-            vnode.context[binding.expression](event);
-          }
-        };
-
-        window.addEventListener("mousedown", el.clickOutsideEvent);
-      },
-      unbind(el) {
-        window.removeEventListener("mousedown", el.clickOutsideEvent);
-      }
-    }
-  }
+  methods: mapActions(["toggleNavigationMenu"]),
+  computed: mapState(["navigationMenuActive"])
 };
 </script>
 
