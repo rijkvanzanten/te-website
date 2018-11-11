@@ -100,7 +100,6 @@ export default {
 
 <style lang="scss" scoped>
 .window {
-  background-color: #333;
   position: absolute;
   color: white;
   width: max-content;
@@ -125,51 +124,119 @@ export default {
     }
   }
 
+  background-color: var(--dark-gray);
+
+  transition: background-color 200ms var(--transition-out);
+
+  /deep/ h2 {
+    transition: color 200ms var(--transition-out);
+    color: var(--light-gray);
+  }
+
   &.purple {
-    background-color: var(--purple-700);
+    background-color: var(--purple-900);
 
     /deep/ h2 {
-      color: var(--purple-500);
+      color: var(--purple-700);
     }
   }
 
   &.red {
-    background-color: var(--red-700);
+    background-color: var(--red-900);
 
     /deep/ h2 {
-      color: var(--red-500);
+      color: var(--red-700);
     }
   }
 
   &.orange {
-    background-color: var(--orange-700);
+    background-color: var(--orange-900);
 
     /deep/ h2 {
-      color: var(--orange-500);
+      color: var(--orange-700);
     }
   }
 
   &.yellow {
-    background-color: var(--yellow-700);
+    background-color: var(--yellow-900);
 
     /deep/ h2 {
-      color: var(--yellow-500);
+      color: var(--yellow-700);
     }
   }
 
   &.green {
-    background-color: var(--green-700);
+    background-color: var(--green-900);
 
     /deep/ h2 {
-      color: var(--green-500);
+      color: var(--green-700);
     }
   }
 
   &.blue {
-    background-color: var(--blue-700);
+    background-color: var(--blue-900);
 
     /deep/ h2 {
-      color: var(--blue-500);
+      color: var(--blue-700);
+    }
+  }
+
+  &.active {
+     background-color: var(--gray);
+
+    transition: background-color 200ms var(--transition-in);
+
+    /deep/ h2 {
+      transition: color 200ms var(--transition-in);
+      color: var(--white);
+    }
+
+    &.purple {
+      background-color: var(--purple-700);
+
+      /deep/ h2 {
+        color: var(--purple-500);
+      }
+    }
+
+    &.red {
+      background-color: var(--red-700);
+
+      /deep/ h2 {
+        color: var(--red-500);
+      }
+    }
+
+    &.orange {
+      background-color: var(--orange-700);
+
+      /deep/ h2 {
+        color: var(--orange-500);
+      }
+    }
+
+    &.yellow {
+      background-color: var(--yellow-700);
+
+      /deep/ h2 {
+        color: var(--yellow-500);
+      }
+    }
+
+    &.green {
+      background-color: var(--green-700);
+
+      /deep/ h2 {
+        color: var(--green-500);
+      }
+    }
+
+    &.blue {
+      background-color: var(--blue-700);
+
+      /deep/ h2 {
+        color: var(--blue-500);
+      }
     }
   }
 }
