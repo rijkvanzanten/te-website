@@ -75,6 +75,7 @@ export default new Vuex.Store({
         name,
         ...Object.keys(state.windows)
           .filter(windowName => windowName !== name)
+          .filter(windowName => state.windows[windowName].active)
           .sort((a, b) => {
             const sortA = state.windows[a].sort;
             const sortB = state.windows[b].sort;
@@ -98,8 +99,12 @@ export default new Vuex.Store({
       commit("openWindow", name);
       commit("bringToFront", name);
     },
-    closeWindow({ commit }, name) {
+    closeWindow({ commit, state }, name) {
       commit("closeWindow", name);
+
+      // Bring the next window to the front
+      const nextActiveWindow = Object.keys(state.windows).filter(name => state.windows[name].sort === 1)[0];
+      commit("bringToFront", nextActiveWindow);
     },
     setLastPosition({ commit }, info) {
       commit("setLastPosition", info);
