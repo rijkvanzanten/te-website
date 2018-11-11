@@ -76,6 +76,7 @@ export default new Vuex.Store({
         name,
         ...Object.keys(state.windows)
           .filter(windowName => windowName !== name)
+          .filter(windowName => state.windows[windowName].active)
           .sort((a, b) => {
             const sortA = state.windows[a].sort;
             const sortB = state.windows[b].sort;
@@ -84,12 +85,14 @@ export default new Vuex.Store({
       ];
 
       sortedNames.forEach((sortedName, index) => {
-        if (state.windows[sortedName].active) {
-          state.windows[sortedName].sort = index;
-        } else {
-          state.windows[sortedName].sort = -1;
-        }
+        state.windows[sortedName].sort = index;
       });
+
+      Object.keys(state.windows)
+        .filter(windowName => state.windows[windowName].active === false)
+        .forEach(windowName => {
+          state.windows[windowName].sort = -1;
+        });
     },
     toggleNavigationMenu(state, active = null) {
       if (active === null) {
