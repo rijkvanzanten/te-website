@@ -13,7 +13,8 @@ export default new Vuex.Store({
         top: 50,
         sort: 1,
         active: true,
-        close: false
+        close: false,
+        color: "white"
       },
       speakers: {
         left: 100,
@@ -128,11 +129,14 @@ export default new Vuex.Store({
   },
   getters: {
     frontWindow(state) {
-      return state.windows[
-        Object.keys(state.windows).filter(
-          name => state.windows[name].sort === 0
-        )[0]
-      ];
+      const windowName = Object.keys(state.windows).filter(
+        name => state.windows[name].sort === 0
+      )[0];
+
+      return {
+        ...state.windows[windowName],
+        name: windowName
+      };
     }
   }
 });

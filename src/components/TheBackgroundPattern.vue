@@ -1,25 +1,29 @@
 <template>
-  <div
-    id="bg-pattern"
-    :style="{
-      color: `var(--${color}-600)`,
-      textShadow: `-4px 2px var(--${shadowColor}-600)`
-    }"
-  >
-    {{ pattern }}
+  <div>
+    <div
+      id="bg-pattern"
+      :style="{
+        color: `var(--${color}-600)`,
+        textShadow: `-4px 2px var(--${shadowColor}-600)`
+      }"
+    >
+      {{ pattern }}
+    </div>
+    <h1 id="logo">Tech:Ethics</h1>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import defaultPattern from "raw-loader!../patterns/default.txt";
+import patterns from "../patterns/";
 
 export default {
   name: "background-pattern",
   computed: {
     ...mapGetters(["frontWindow"]),
     pattern() {
-      return defaultPattern;
+      const language = "en";
+      return patterns[language][this.frontWindow.name];
     },
     color() {
       return this.frontWindow.color;
@@ -30,12 +34,13 @@ export default {
         case "orange":
         case "green":
           return "yellow";
-          break;
         case "blue":
         case "yellow":
           return "orange";
+        case "purple":
+          return "green";
         default:
-          return "red";
+          return "yellow";
       }
     }
   }
@@ -55,13 +60,18 @@ export default {
   word-break: break-all;
 
   font-family: "Source Code Pro", monospace;
-  font-size: 1.6vw;
+  font-size: 10px;
   font-weight: 800;
+}
 
-  transition: color 200ms var(--transition);
-
-  @media (orientation: portrait) {
-    font-size: 1.6vh;
-  }
+#logo {
+  font-size: 8vw;
+  color: var(--black);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.7;
+  mix-blend-mode: overlay;
 }
 </style>

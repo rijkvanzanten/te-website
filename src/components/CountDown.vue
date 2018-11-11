@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     conferenceDate() {
-      return "2018-11-23T09:00:00";
+      return "2018-12-11T09:00:00";
     }
   },
   methods: {

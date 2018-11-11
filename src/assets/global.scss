@@ -1,11 +1,17 @@
 :root {
   --menu-bar-height: 60px;
 
-  --white: #FFFFFF;
-  --light-gray: #9F9F9F;
-  --gray: #535353;
-  --dark-gray: #242424;
-  --black: #191919;
+  --white: var(--white-500);
+  --light-gray: var(--white-600);
+  --gray: var(--white-700);
+  --dark-gray: var(--white-800);
+  --black: var(--white-900);
+
+  --white-500: #FFFFFF;
+  --white-600: #9F9F9F;
+  --white-700: #535353;
+  --white-800: #242424;
+  --white-900: #191919;
 
   --purple-500: #6C0CCF;
   --purple-600: #3F0779;
@@ -76,11 +82,12 @@ body {
   color: white;
   background-color: black;
   font-family: "Source Code Pro", monospace;
+  font-weight: bold;
 }
 
 h1, h2 {
   font-family: "Tech Ethics";
-  font-size: 100px;
+  font-size: 3vw;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 20px 0;

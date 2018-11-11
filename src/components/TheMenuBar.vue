@@ -34,6 +34,7 @@ export default {
   background-color: var(--gray);
   bottom: 0;
   z-index: 500;
+  box-shadow: 0 -10px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
 
   button {
     appearance: none;

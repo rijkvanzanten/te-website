@@ -12,8 +12,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-h2 {
-  font-size: 70px;
-}
-</style>
+<style scoped lang="scss"></style>
