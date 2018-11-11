@@ -44,6 +44,12 @@
   --blue-900: #01202F;
 }
 
+@font-face {
+  font-family: "Tech Ethics";
+  src: url("../fonts/techethics.woff2") format("woff2"),
+       url("../fonts/techethics.woff") format("woff");
+}
+
 * {
   box-sizing: border-box;
   font-family: inherit;
@@ -61,5 +67,14 @@ body {
   margin: 0;
   color: white;
   background-color: black;
-  font-family: "Source Code Pro";
+  font-family: "Source Code Pro", monospace;
+}
+
+h1, h2 {
+  font-family: "Tech Ethics";
+  font-size: 100px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 20px 0;
+  padding: 0;
 }
