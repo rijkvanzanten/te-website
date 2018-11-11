@@ -103,7 +103,9 @@ export default new Vuex.Store({
       commit("closeWindow", name);
 
       // Bring the next window to the front
-      const nextActiveWindow = Object.keys(state.windows).filter(name => state.windows[name].sort === 1)[0];
+      const nextActiveWindow = Object.keys(state.windows).filter(
+        name => state.windows[name].sort === 1
+      )[0];
       commit("bringToFront", nextActiveWindow);
     },
     setLastPosition({ commit }, info) {

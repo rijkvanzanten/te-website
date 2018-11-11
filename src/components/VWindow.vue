@@ -9,7 +9,9 @@
   >
     <button @click.stop.prevent="closeWindow(page);">
       <svg viewBox="0 0 10 10" class="close-icon">
-        <path d="m7.1 1.4 1.4 1.4-5.6 5.6-1.4-1.4zm-4.2 0l5.6 5.6-1.4 1.4-5.6-5.6z"/>
+        <path
+          d="m7.1 1.4 1.4 1.4-5.6 5.6-1.4-1.4zm-4.2 0l5.6 5.6-1.4 1.4-5.6-5.6z"
+        />
       </svg>
     </button>
     <component :is="'p-' + page" />

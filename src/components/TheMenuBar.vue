@@ -1,12 +1,17 @@
 <template>
-  <div id="menubar">
-    <button @click="toggleNavigationMenu();">{{ $t("menu") }}</button>
+  <div id="menubar" v-click-outside="closeIfActive">
+    <button
+      :class="{ active: navigationMenuActive }"
+      @click="toggleNavigationMenu();"
+    >
+      {{ $t("menu") }}
+    </button>
     <count-down />
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import CountDown from "./CountDown.vue";
 
 export default {
@@ -15,7 +20,29 @@ export default {
     CountDown
   },
   methods: {
-    ...mapActions(["toggleNavigationMenu"])
+    ...mapActions(["toggleNavigationMenu"]),
+    closeIfActive() {
+      if (this.navigationMenuActive) {
+        this.toggleNavigationMenu(false);
+      }
+    }
+  },
+  computed: mapState(["navigationMenuActive"]),
+  directives: {
+    "click-outside": {
+      bind(el, binding, vnode) {
+        el.clickOutsideEvent = function(event) {
+          if (!(el == event.target || el.contains(event.target))) {
+            vnode.context[binding.expression](event);
+          }
+        };
+
+        window.addEventListener("click", el.clickOutsideEvent);
+      },
+      unbind(el) {
+        window.removeEventListener("click", el.clickOutsideEvent);
+      }
+    }
   }
 };
 </script>
@@ -26,7 +53,26 @@ export default {
   left: 0;
   right: 0;
   height: var(--menu-bar-height);
-  background-color: black;
+  background-color: var(--gray);
   bottom: 0;
+
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 800;
+    height: 100%;
+    padding: 0 30px;
+
+    &:hover {
+      background-color: var(--dark-gray);
+    }
+
+    &.active {
+      background-color: var(--black);
+    }
+  }
 }
 </style>
