@@ -2,7 +2,7 @@
   <div
     id="bg-pattern"
     :style="{
-      color: `var(--${color}-500)`,
+      color: `var(--${color}-600)`,
       textShadow: `-4px 2px var(--${shadowColor}-600)`
     }"
   >
@@ -50,12 +50,18 @@ export default {
   width: 100%;
   height: 100%;
   z-index: -1;
+  user-select: none;
+  pointer-events: none;
+  word-break: break-all;
 
-  font-size: 1.4vw;
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.6vw;
   font-weight: 800;
 
+  transition: color 200ms var(--transition);
+
   @media (orientation: portrait) {
-    font-size: 1.4vh;
+    font-size: 1.6vh;
   }
 }
 </style>
