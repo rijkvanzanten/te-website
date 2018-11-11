@@ -11,52 +11,66 @@ export default new Vuex.Store({
       about: {
         left: 50,
         top: 50,
-        sort: 1,
+        sort: 0,
         active: true,
         close: false,
-        color: "white"
+        color: "white",
+        height: 634,
+        name: "Tech:\nEthics"
       },
       speakers: {
         left: 100,
         top: 90,
-        sort: 2,
+        sort: 1,
         active: false,
-        color: "orange"
+        color: "orange",
+        height: 200,
+        name: "Speakers"
       },
       schedule: {
         left: 100,
         top: 90,
         sort: 2,
         active: false,
-        color: "green"
+        color: "green",
+        height: 200,
+        name: "Schedule"
       },
       venue: {
         left: 100,
         top: 90,
-        sort: 2,
+        sort: 3,
         active: true,
-        color: "blue"
+        color: "blue",
+        height: 390,
+        name: "Venue"
       },
       attendees: {
         left: 500,
         top: 200,
-        sort: 3,
-        active: true,
-        color: "purple"
+        sort: 4,
+        active: false,
+        color: "purple",
+        height: 200,
+        name: "Attendees"
       },
       contact: {
         left: 0,
         top: 0,
         sort: 5,
         active: false,
-        color: "yellow"
+        color: "yellow",
+        height: 200,
+        name: "Contact"
       },
       tickets: {
         left: 0,
         top: 0,
-        sort: 12,
+        sort: 6,
         active: false,
-        color: "red"
+        color: "red",
+        height: 200,
+        name: "Tickets"
       }
     },
     navigationMenuActive: false

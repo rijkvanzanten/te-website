@@ -9,8 +9,10 @@
     "fix": "prettier \"src/**/*.{js,vue}\" --write"
   },
   "dependencies": {
+    "convert-range": "^1.1.0",
     "lodash.find": "^4.6.0",
     "lodash.throttle": "^4.1.1",
+    "simplebar-vue": "0.1.0-beta.2",
     "vue": "^2.5.17",
     "vue-i18n": "^8.3.1",
     "vuex": "^3.0.1",

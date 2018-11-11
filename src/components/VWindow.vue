@@ -14,13 +14,17 @@
         />
       </svg>
     </button>
-    <component :is="'p-' + page" />
+    <div class="content" @scroll="scroll">
+      <h2 :style="{ opacity: h2Opacity }">{{ name }}</h2>
+      <component :is="'p-' + page" />
+    </div>
   </article>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
 import throttle from "lodash.throttle";
+import convertRange from "convert-range";
 
 export default {
   name: "v-window",
@@ -29,7 +33,8 @@ export default {
       top: 0,
       left: 0,
       offsetX: 0,
-      offsetY: 0
+      offsetY: 0,
+      h2Opacity: 1
     };
   },
   props: {
@@ -44,6 +49,10 @@ export default {
     close: {
       type: Boolean,
       default: true
+    },
+    name: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -66,9 +75,14 @@ export default {
     this.top = this.windows[this.page].top;
 
     this.drag = throttle(this.drag, 12); // Just under 60fps. Jankfree dragging
+
+    this.scroll = throttle(this.scroll, 12);
   },
   methods: {
     ...mapActions(["closeWindow", "setLastPosition", "bringToFront"]),
+    scroll(event) {
+      this.h2Opacity = convertRange(event.target.scrollTop, [0, event.target.scrollHeight - event.target.offsetHeight], [1, 0.2]).toFixed(3);
+    },
     dragStart(event) {
       event.preventDefault();
       this.offsetX = event.clientX;
@@ -111,7 +125,6 @@ export default {
   position: absolute;
   color: white;
   width: max-content;
-  padding: 10px 20px;
   touch-action: none;
   user-select: none;
   box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
@@ -143,6 +156,13 @@ export default {
     }
   }
 
+  .content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    padding: 10px 20px;
+  }
+
   .close-icon {
     fill: var(--gray);
     transition: fill 200ms var(--transition-out);
@@ -152,15 +172,28 @@ export default {
 
   transition: background-color 200ms var(--transition-out);
 
-  /deep/ h2 {
+  h2 {
     transition: color 200ms var(--transition-out);
     color: var(--light-gray);
+    position: sticky;
+    top: 10px;
+    margin-top: 0;
+    z-index: -1;
+    white-space: pre-wrap;
+  }
+
+  &:not(.active) /deep/ * {
+    color: var(--light-gray);
+  }
+
+  &:not(.active) /deep/ img {
+    opacity: 0.5;
   }
 
   &.purple {
     background-color: var(--purple-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--purple-700);
     }
 
@@ -172,7 +205,7 @@ export default {
   &.red {
     background-color: var(--red-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--red-700);
     }
 
@@ -184,7 +217,7 @@ export default {
   &.orange {
     background-color: var(--orange-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--orange-700);
     }
 
@@ -196,7 +229,7 @@ export default {
   &.yellow {
     background-color: var(--yellow-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--yellow-700);
     }
 
@@ -208,7 +241,7 @@ export default {
   &.green {
     background-color: var(--green-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--green-700);
     }
 
@@ -220,7 +253,7 @@ export default {
   &.blue {
     background-color: var(--blue-900);
 
-    /deep/ h2 {
+    h2 {
       color: var(--blue-700);
     }
 
@@ -234,7 +267,7 @@ export default {
 
     transition: background-color 200ms var(--transition-in);
 
-    /deep/ h2 {
+    h2 {
       transition: color 200ms var(--transition-in);
       color: var(--white);
     }
@@ -247,7 +280,7 @@ export default {
     &.purple {
       background-color: var(--purple-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--purple-500);
       }
     }
@@ -255,7 +288,7 @@ export default {
     &.red {
       background-color: var(--red-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--red-500);
       }
     }
@@ -263,7 +296,7 @@ export default {
     &.orange {
       background-color: var(--orange-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--orange-500);
       }
     }
@@ -271,7 +304,7 @@ export default {
     &.yellow {
       background-color: var(--yellow-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--yellow-500);
       }
     }
@@ -279,7 +312,7 @@ export default {
     &.green {
       background-color: var(--green-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--green-500);
       }
     }
@@ -287,7 +320,7 @@ export default {
     &.blue {
       background-color: var(--blue-700);
 
-      /deep/ h2 {
+      h2 {
         color: var(--blue-500);
       }
     }

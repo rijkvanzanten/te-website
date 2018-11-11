@@ -6,6 +6,8 @@
       :key="page"
       :color="windows[page].color || null"
       :close="windows[page].close"
+      :name="windows[page].name"
+      :style="{ height: windows[page].height + 'px' }"
     />
   </div>
 </template>
