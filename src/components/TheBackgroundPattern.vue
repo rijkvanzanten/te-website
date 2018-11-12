@@ -59,6 +59,8 @@ export default {
   pointer-events: none;
   word-break: break-all;
 
+  transition: color 200ms var(--transition);
+
   font-family: "Source Code Pro", monospace;
   font-size: 10px;
   font-weight: 800;
