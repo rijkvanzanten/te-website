@@ -65,6 +65,9 @@
   font-family: inherit;
   color: inherit;
 
+  /* Yeah yeah, i know */
+  user-select: none;
+
   &:focus {
     outline: 0;
   }

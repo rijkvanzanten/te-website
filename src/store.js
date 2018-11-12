@@ -33,14 +33,14 @@ export default new Vuex.Store({
         sort: 2,
         active: false,
         color: "green",
-        height: 200,
+        height: 390,
         name: "Schedule"
       },
       venue: {
         left: 100,
         top: 90,
         sort: 3,
-        active: true,
+        active: false,
         color: "blue",
         height: 390,
         name: "Venue"
@@ -51,7 +51,7 @@ export default new Vuex.Store({
         sort: 4,
         active: false,
         color: "purple",
-        height: 200,
+        height: 420,
         name: "Attendees"
       },
       contact: {

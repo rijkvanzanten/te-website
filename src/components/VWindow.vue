@@ -81,7 +81,9 @@ export default {
   methods: {
     ...mapActions(["closeWindow", "setLastPosition", "bringToFront"]),
     scroll(event) {
-      this.h2Opacity = convertRange(event.target.scrollTop, [0, event.target.scrollHeight - event.target.offsetHeight], [1, 0.2]).toFixed(3);
+      const scrollTop =
+        event.target.scrollTop > 113 ? 113 : event.target.scrollTop;
+      this.h2Opacity = convertRange(scrollTop, [0, 113], [1, 0.2]).toFixed(3);
     },
     dragStart(event) {
       event.preventDefault();
