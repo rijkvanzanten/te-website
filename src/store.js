@@ -10,7 +10,7 @@ export default new Vuex.Store({
     windows: {
       about: {
         left: 50,
-        top: 50,
+        top: 60,
         sort: 0,
         active: true,
         close: false,
@@ -19,8 +19,8 @@ export default new Vuex.Store({
         name: "Tech:\nEthics"
       },
       speakers: {
-        left: 100,
-        top: 90,
+        left: 269,
+        top: 169,
         sort: 1,
         active: false,
         color: "orange",
@@ -28,8 +28,8 @@ export default new Vuex.Store({
         name: "Speakers"
       },
       schedule: {
-        left: 100,
-        top: 90,
+        left: 251,
+        top: 104,
         sort: 2,
         active: false,
         color: "green",
@@ -37,8 +37,8 @@ export default new Vuex.Store({
         name: "Schedule"
       },
       venue: {
-        left: 100,
-        top: 90,
+        left: 277,
+        top: 293,
         sort: 3,
         active: false,
         color: "blue",
@@ -46,8 +46,8 @@ export default new Vuex.Store({
         name: "Venue"
       },
       attendees: {
-        left: 500,
-        top: 200,
+        left: 573,
+        top: 225,
         sort: 4,
         active: false,
         color: "purple",
@@ -55,21 +55,21 @@ export default new Vuex.Store({
         name: "Attendees"
       },
       contact: {
-        left: 0,
-        top: 0,
+        left: 758,
+        top: 51,
         sort: 5,
         active: false,
         color: "yellow",
-        height: 200,
+        height: 384,
         name: "Contact"
       },
       tickets: {
-        left: 0,
-        top: 0,
+        left: 340,
+        top: 223,
         sort: 6,
         active: false,
         color: "red",
-        height: 200,
+        height: 340,
         name: "Tickets"
       }
     },
