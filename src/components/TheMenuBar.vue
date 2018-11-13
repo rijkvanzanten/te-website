@@ -7,21 +7,24 @@
     >
       {{ $t("menu") }}
     </button>
-    <a href="https://www.eventbrite.com/e/techethics-tickets-52506837364"
-      >Tickets</a
-    >
+    <a href="https://www.eventbrite.com/e/techethics-tickets-52506837364">{{
+      $t("tickets")
+    }}</a>
     <count-down />
+    <language-switcher />
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
 import CountDown from "./CountDown.vue";
+import LanguageSwitcher from "./TheLanguageSwitcher.vue";
 
 export default {
   name: "menu-bar",
   components: {
-    CountDown
+    CountDown,
+    LanguageSwitcher
   },
   methods: mapActions(["toggleNavigationMenu"]),
   computed: mapState(["navigationMenuActive"])

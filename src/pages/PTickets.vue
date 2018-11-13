@@ -1,14 +1,11 @@
 <template>
   <div id="tickets">
-    <p>
-      Early bird registration is $695 and is limited to the first 100 tickets or
-      November 30!
-    </p>
-    <small>Does not include a workshop ticket.</small>
+    <p>{{ $t("tickets_1") }}</p>
+    <small>{{ $t("tickets_2") }}</small>
     <a
       href="https://www.eventbrite.com/e/techethics-tickets-52506837364"
       id="tickets-button"
-      >Get Tickets</a
+      >{{ $t("tickets_3") }}</a
     >
   </div>
 </template>

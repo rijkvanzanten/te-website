@@ -1,18 +1,16 @@
 <template>
   <div id="contact">
-    <p>
-      TECH:ETHICS is run by Tech Conferences Tokyo; Rachel Sun, Rijk van Zanten,
-      and Jacob Heftmann.
-    </p>
+    <p>{{ $t("contact_1") }}</p>
     <ul>
-      <li>Follow us on <a href="#">Twitter</a>.</li>
-      <li><a href="#">Subscribe to our mailing list</a> for future updates.</li>
       <li>
-        For general or sponsorship questions, contact Rachel Sun; 202-555-0152
+        {{ $t("contact_2") }} <a href="#">{{ $t("contact_3") }}</a
+        >.
       </li>
       <li>
-        For administrative questions, contact Rijk van Zanten; 202-555-0187
+        <a href="#">{{ $t("contact_4") }}</a> {{ $t("contact_5") }}
       </li>
+      <li>{{ $t("contact_6") }}</li>
+      <li>{{ $t("contact_7") }}</li>
     </ul>
   </div>
 </template>

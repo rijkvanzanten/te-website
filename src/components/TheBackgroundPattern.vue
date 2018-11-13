@@ -22,7 +22,7 @@ export default {
   computed: {
     ...mapGetters(["frontWindow"]),
     pattern() {
-      const language = "en";
+      const language = this.$i18n.locale;
       return patterns[language][this.frontWindow.name];
     },
     color() {

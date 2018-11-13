@@ -54,10 +54,15 @@
   --transition-out: cubic-bezier(0.4, 0, 1, 1);
 }
 
+// @font-face {
+//   font-family: "Tech Ethics";
+//   src: url("../fonts/techethics.woff2") format("woff2"),
+//        url("../fonts/techethics.woff") format("woff");
+// }
+
 @font-face {
   font-family: "Tech Ethics";
-  src: url("../fonts/techethics.woff2") format("woff2"),
-       url("../fonts/techethics.woff") format("woff");
+  src: url("../fonts/techethics.ttf");
 }
 
 * {

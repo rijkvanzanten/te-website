@@ -16,7 +16,7 @@ export default new Vuex.Store({
         close: false,
         color: "white",
         height: 634,
-        name: "Tech:\nEthics"
+        name: "tech_ethics"
       },
       speakers: {
         left: 269,
@@ -25,7 +25,7 @@ export default new Vuex.Store({
         active: false,
         color: "orange",
         height: 390,
-        name: "Speakers"
+        name: "speakers"
       },
       schedule: {
         left: 251,
@@ -34,7 +34,7 @@ export default new Vuex.Store({
         active: false,
         color: "green",
         height: 390,
-        name: "Schedule"
+        name: "schedule"
       },
       venue: {
         left: 277,
@@ -43,7 +43,7 @@ export default new Vuex.Store({
         active: false,
         color: "blue",
         height: 390,
-        name: "Venue"
+        name: "venue"
       },
       attendees: {
         left: 573,
@@ -52,7 +52,7 @@ export default new Vuex.Store({
         active: false,
         color: "purple",
         height: 420,
-        name: "Attendees"
+        name: "attendees"
       },
       contact: {
         left: 758,
@@ -61,7 +61,7 @@ export default new Vuex.Store({
         active: false,
         color: "yellow",
         height: 384,
-        name: "Contact"
+        name: "contact"
       },
       tickets: {
         left: 340,
@@ -70,7 +70,7 @@ export default new Vuex.Store({
         active: false,
         color: "red",
         height: 340,
-        name: "Tickets"
+        name: "tickets"
       }
     },
     navigationMenuActive: false
@@ -115,6 +115,9 @@ export default new Vuex.Store({
       } else {
         state.navigationMenuActive = active;
       }
+    },
+    setLanguage(state, language) {
+      state.language = language;
     }
   },
   actions: {

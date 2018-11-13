@@ -1,150 +1,137 @@
 <template>
   <div id="schedule">
-    <h3>Day 1</h3>
+    <h3>{{ $t("day1") }}</h3>
     <table>
       <tbody>
         <tr>
-          <td>08:15</td>
-          <td>Doors open</td>
-          <td>breakfast, coffee & registration</td>
+          <td>{{ $t("times.1") }}</td>
+          <td>{{ $t("titles.doors") }}</td>
+          <td>{{ $t("titles.opening") }}</td>
         </tr>
         <tr>
-          <td>09:00</td>
+          <td>{{ $t("times.2") }}</td>
           <td>Daisy-May Wagner</td>
-          <td>Blockchain wasting energy</td>
+          <td>{{ $t("titles.1") }}</td>
         </tr>
         <tr>
-          <td>09:50</td>
+          <td>{{ $t("times.3") }}</td>
           <td>Abigail Johns</td>
-          <td>Rare materials in smartphones</td>
+          <td>{{ $t("titles.2") }}</td>
         </tr>
         <tr>
-          <td>10:40</td>
-          <td>Break</td>
+          <td>{{ $t("times.4") }}</td>
+          <td>{{ $t("titles.break") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>11:10</td>
+          <td>{{ $t("times.5") }}</td>
           <td>Isha Farrington</td>
-          <td>Anonymity in social communication: problems</td>
+          <td>{{ $t("titles.3") }}</td>
         </tr>
         <tr>
-          <td>12:00</td>
+          <td>{{ $t("times.6") }}</td>
           <td>Zahrah Mata</td>
-          <td>Privacy vs Convenience</td>
+          <td>{{ $t("titles.4") }}</td>
         </tr>
         <tr>
-          <td>12:50</td>
-          <td>Lunch</td>
+          <td>{{ $t("times.7") }}</td>
+          <td>{{ $t("titles.lunch") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>13:50</td>
+          <td>{{ $t("times.7") }}</td>
           <td>Gianni Bartlett</td>
-          <td>“Free Service” - Pay with data</td>
+          <td>{{ $t("titles.5") }}</td>
         </tr>
         <tr>
-          <td>14:40</td>
+          <td>{{ $t("times.8") }}</td>
           <td>Cally Donaldson</td>
-          <td>Deaths caused by autonomous vehicles</td>
+          <td>{{ $t("titles.6") }}</td>
         </tr>
         <tr>
-          <td>15:30</td>
-          <td>Break</td>
+          <td>{{ $t("times.9") }}</td>
+          <td>{{ $t("titles.break") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>16:00</td>
+          <td>{{ $t("times.10") }}</td>
           <td>Sidrah Bell</td>
-          <td>Should parents be able to edit their babies' genes?</td>
+          <td>{{ $t("titles.7") }}</td>
         </tr>
         <tr>
-          <td>16:50</td>
+          <td>{{ $t("times.11") }}</td>
           <td>Rosemarie Hansen</td>
-          <td>How much is too much privacy?</td>
+          <td>{{ $t("titles.8") }}</td>
         </tr>
         <tr>
-          <td>17:40</td>
-          <td>Afterparty</td>
-          <td>drinks & discussions</td>
+          <td>{{ $t("times.12") }}</td>
+          <td>{{ $t("titles.afterparty") }}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
-    <h3>Day 2</h3>
+    <h3>{{ $t("day2") }}</h3>
     <table>
       <tbody>
         <tr>
-          <td>08:15</td>
-          <td>Doors open</td>
-          <td>breakfast, coffee & registration</td>
+          <td>{{ $t("times.1") }}</td>
+          <td>{{ $t("titles.doors") }}</td>
+          <td>{{ $t("titles.opening") }}</td>
         </tr>
         <tr>
-          <td>09:00</td>
+          <td>{{ $t("times.2") }}</td>
           <td>Melissa Quintana</td>
-          <td>
-            What are the limits for 3d Printing? Should we allow people to print
-            weapons?
-          </td>
+          <td>{{ $t("titles.9") }}</td>
         </tr>
         <tr>
-          <td>09:50</td>
+          <td>{{ $t("times.3") }}</td>
           <td>Maggie Firth</td>
-          <td>
-            Talking Barbie—a new Barbie that records conversations with your
-            child
-          </td>
+          <td>{{ $t("titles.10") }}</td>
         </tr>
         <tr>
-          <td>10:40</td>
-          <td>Break</td>
+          <td>{{ $t("times.4") }}</td>
+          <td>{{ $t("titles.break") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>11:10</td>
+          <td>{{ $t("times.5") }}</td>
           <td>Phoenix Howarth</td>
-          <td>
-            Data Collection and Privacy: how much data do we allow technology
-            company to collect?
-          </td>
+          <td>{{ $t("titles.11") }}</td>
         </tr>
         <tr>
-          <td>12:00</td>
+          <td>{{ $t("times.6") }}</td>
           <td>Giacomo Nolan</td>
-          <td>Violence in Online Video Games</td>
+          <td>{{ $t("titles.12") }}</td>
         </tr>
         <tr>
-          <td>12:50</td>
-          <td>Lunch</td>
+          <td>{{ $t("times.7") }}</td>
+          <td>{{ $t("titles.lunch") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>13:50</td>
+          <td>{{ $t("times.7") }}</td>
           <td>Sonny Friedman</td>
-          <td>
-            People are adapting in a Virtual world instead of the real world
-          </td>
+          <td>{{ $t("titles.13") }}</td>
         </tr>
         <tr>
-          <td>14:40</td>
+          <td>{{ $t("times.8") }}</td>
           <td>Aryan Mcknight</td>
-          <td>
-            The rise of artificial intelligence: Will robots take over our jobs?
-          </td>
+          <td>{{ $t("titles.14") }}</td>
         </tr>
         <tr>
-          <td>15:30</td>
-          <td>Break</td>
+          <td>{{ $t("times.9") }}</td>
+          <td>{{ $t("titles.break") }}</td>
           <td></td>
         </tr>
         <tr>
-          <td>16:00</td>
+          <td>{{ $t("times.10") }}</td>
           <td>Izzy Fellows</td>
-          <td>The Second Machine age: is it really helping us?</td>
+          <td>{{ $t("titles.15") }}</td>
         </tr>
         <tr>
-          <td>16:50</td>
-          <td>Afterparty</td>
-          <td>drinks & discussions</td>
+          <td>{{ $t("times.11") }}</td>
+          <td>{{ $t("titles.afterparty") }}</td>
+          <td>{{ $t("titles.drinks") }}</td>
         </tr>
       </tbody>
     </table>
@@ -165,6 +152,7 @@ export default {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    font-size: 12px;
   }
 
   td {

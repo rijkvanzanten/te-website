@@ -182,6 +182,7 @@ export default {
     margin-top: 0;
     z-index: -1;
     white-space: pre-wrap;
+    font-weight: 100;
   }
 
   &:not(.active) /deep/ * {

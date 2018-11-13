@@ -15,7 +15,7 @@ import jpTickets from "raw-loader!./jp/tickets.txt";
 import jpVenue from "raw-loader!./jp/venue.txt";
 
 export default {
-  jp: {
+  ja: {
     about: jpAbout,
     attendees: jpAttendees,
     contact: jpContact,

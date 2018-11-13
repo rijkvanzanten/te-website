@@ -1,3 +1,69 @@
 export default {
-  menu: "Menu"
+  menu: "Menu",
+  tickets: "Tickets",
+  speakers: "Speakers",
+  schedule: "Schedule",
+  venue: "Venue",
+  attendees: "Attendees",
+  contact: "Contact",
+  tech_ethics: "TECH:\nETHICS",
+  about_intro:
+    "On 24th and 25th of November the yearly TECH:ETHICS conference is happening in Tokyo, a single track conference with twelve industry leading speakers covering today's most important ethical topics on artificial intelligence.",
+  about_date: "11/24/2018 - 11/25/2018",
+  about_location_1: "Makuhari Messe",
+  about_location_2: "2-1, Nakase, Mihama-ku, Chiba-city, 261-8550 Japan",
+  contact_1:
+    "TECH:ETHICS is run by Tech Conferences Tokyo; Rachel Sun, Rijk van Zanten, and Jacob Heftmann.",
+  contact_2: "Follow us on",
+  contact_3: "Twitter",
+  contact_4: "Subscribe to our mailing list",
+  contact_5: "for future updates.",
+  contact_6:
+    "For general or sponsorship questions, contact Rachel Sun; 202-555-0152",
+  contact_7:
+    "For administrative questions, contact Rijk van Zanten; 202-555-0187",
+  times: {
+    1: "8.15 AM",
+    2: "9.00 AM",
+    3: "9.50 AM",
+    4: "10.40 AM",
+    5: "11.10 AM",
+    6: "12.00 PM",
+    7: "12.50 PM",
+    8: "1.50 PM",
+    9: "2.40 PM",
+    10: "3.30 PM",
+    11: "4.00 PM",
+    12: "4.50 PM",
+    13: "5.40 PM"
+  },
+  titles: {
+    doors: "doors open",
+    opening: "breakfast, coffee & registration",
+    break: "Break",
+    drinks: "drinks & discussions",
+    lunch: "Lunch",
+    afterparty: "Afterparty",
+    1: "Blockchain wasting energy",
+    2: "Rare materials in smartphones",
+    3: "Anonymity in social communication: problems",
+    4: "Privacy vs Convenience",
+    5: "“Free Service” - Pay with data",
+    6: "Deaths caused by autonomous vehicles",
+    7: "Should parents be able to edit their babies' genes?",
+    8: "How much is too much privacy?",
+    9: "3D Printing Weapons",
+    10: "Talking (Recording) Barbie",
+    11: "How much data do we allow companies to collect?",
+    12: "Violence in Online Video Games",
+    13: "Adapting in a Virtual World",
+    14: "Will robots take over our jobs?",
+    15: "The Second Machine age: is it really helping us?"
+  },
+  tickets_1:
+    "Early bird registration is $695 and is limited to the first 100 tickets or November 20!",
+  tickets_2: "Does not include a workshop ticket.",
+  tickets_3: "Get Tickets",
+  day1: "Day 1",
+  day2: "Day 2"
 };
