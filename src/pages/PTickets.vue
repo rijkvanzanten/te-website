@@ -5,7 +5,11 @@
       November 30!
     </p>
     <small>Does not include a workshop ticket.</small>
-    <a href="#" id="tickets-button">Get Tickets</a>
+    <a
+      href="https://www.eventbrite.com/e/techethics-tickets-52506837364"
+      id="tickets-button"
+      >Get Tickets</a
+    >
   </div>
 </template>
 

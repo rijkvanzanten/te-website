@@ -7,6 +7,9 @@
     >
       {{ $t("menu") }}
     </button>
+    <a href="https://www.eventbrite.com/e/techethics-tickets-52506837364"
+      >Tickets</a
+    >
     <count-down />
   </div>
 </template>
@@ -36,7 +39,8 @@ export default {
   z-index: 500;
   box-shadow: 0 -10px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
 
-  button {
+  button,
+  a {
     appearance: none;
     background-color: transparent;
     border: 0;
@@ -56,6 +60,13 @@ export default {
     &.active {
       background-color: var(--black);
     }
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
   }
 }
 </style>

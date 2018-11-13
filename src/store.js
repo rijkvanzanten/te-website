@@ -24,7 +24,7 @@ export default new Vuex.Store({
         sort: 1,
         active: false,
         color: "orange",
-        height: 200,
+        height: 390,
         name: "Speakers"
       },
       schedule: {
